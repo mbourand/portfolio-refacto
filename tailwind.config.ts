@@ -8,10 +8,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "blue-accent": "#4CC9F0",
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "rotating-border-background":
+          "conic-gradient(#4361EE, #3A0CA3, #000000, #4361EE)",
+        "highlight-gradient":
+          "linear-gradient(90deg, #4CC9F0 0%, #C08EF5 100%)",
+        "radial-glow": "radial-gradient(closest-side, #4CC9F033, #4CC9F000)",
+      },
+      keyframes: {
+        "spin-in": {
+          "0%": { transform: "rotate(0deg)", opacity: "0%" },
+          "100%": { transform: "rotate(360deg)", opacity: "100%" },
+        },
       },
     },
   },

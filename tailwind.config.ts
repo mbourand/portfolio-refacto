@@ -15,12 +15,14 @@ const config: Config = {
         "rotating-border-background":
           "conic-gradient(#4361EE, #3A0CA3, #000000, #4361EE)",
         "highlight-gradient":
-          "linear-gradient(90deg, #4CC9F0 0%, #C08EF5 100%)",
-        "radial-glow": "radial-gradient(closest-side, #4CC9F033, #4CC9F000)",
+          "linear-gradient(90deg, #4CC9F0, #C08EF5, #4CC9F0)",
+        "radial-glow": "radial-gradient(closest-side, #4CC9F023, #4CC9F000)",
+        "radial-glow-white":
+          "radial-gradient(circle, #ffffff10 0%, #ffffff00 50%)",
       },
       keyframes: {
         "spin-in": {
-          "0%": { transform: "rotate(0deg)", opacity: "0%" },
+          "0%": { transform: "rotate(180deg)", opacity: "0%" },
           "100%": { transform: "rotate(360deg)", opacity: "100%" },
         },
       },

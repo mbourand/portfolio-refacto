@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 class Circle {
   x: number;
@@ -32,30 +32,9 @@ class Circle {
 export const PointLinkGridCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  let mouse = { x: 0, y: 0 };
-  let lastUpdate = Date.now();
-  let circles: Circle[] = [];
-
-  const update = (
-    canvas: HTMLCanvasElement,
-    context: CanvasRenderingContext2D,
-    deltaTime: number
-  ) => {
-    for (let circle of circles) {
-      circle.move(deltaTime);
-      if (
-        circle.y < 0 ||
-        circle.y >= canvas.height ||
-        circle.x < 0 ||
-        circle.x >= canvas.width
-      ) {
-        circle.move(-deltaTime);
-        circle.speedAngle = Math.random() * Math.PI * 2;
-      }
-    }
-
-    draw(canvas, context);
-  };
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const lastUpdateRef = useRef(Date.now());
+  const circlesRef = useRef<Circle[]>([]);
 
   const drawLink = (
     circle1: Circle,
@@ -79,47 +58,70 @@ export const PointLinkGridCanvas = () => {
       context.beginPath();
       context.moveTo(circle1.x, circle1.y);
       context.lineTo(circle2.x, circle2.y);
-      // context.strokeStyle = `#444`
       context.strokeStyle = `rgba(76, 201, 240, ${linkOpacity})`;
       context.stroke();
     }
   };
 
-  const draw = (
-    canvas: HTMLCanvasElement,
-    context: CanvasRenderingContext2D
-  ) => {
-    if (!context) return;
+  const draw = useCallback(
+    (canvas: HTMLCanvasElement, context: CanvasRenderingContext2D) => {
+      if (!context) return;
 
-    context.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < circles.length; i++) {
-      let circle1 = circles[i];
-      for (let j = 0; j < circles.length; j++) {
-        if (i === j) continue;
-        let circle2 = circles[j];
-        drawLink(circle1, circle2, 110, context);
+      for (let i = 0; i < circlesRef.current.length; i++) {
+        let circle1 = circlesRef.current[i];
+        for (let j = 0; j < circlesRef.current.length; j++) {
+          if (i === j) continue;
+          let circle2 = circlesRef.current[j];
+          drawLink(circle1, circle2, 110, context);
+        }
+        let circle2 = new Circle(mouseRef.current.x, mouseRef.current.y, 5);
+        drawLink(circle1, circle2, 150, context);
       }
-      let circle2 = new Circle(mouse.x, mouse.y, 5);
-      drawLink(circle1, circle2, 150, context);
-    }
 
-    for (let circle of circles) {
-      context.beginPath();
-      context.fillStyle = `#ddd`;
-      context.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
-      context.fill();
-
-      if (circle.strongestLinkOpacity > 0) {
+      for (let circle of circlesRef.current) {
         context.beginPath();
-        context.fillStyle = `rgba(29, 188, 237, ${circle.strongestLinkOpacity})`;
+        context.fillStyle = `#ddd`;
         context.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
         context.fill();
+
+        if (circle.strongestLinkOpacity > 0) {
+          context.beginPath();
+          context.fillStyle = `rgba(29, 188, 237, ${circle.strongestLinkOpacity})`;
+          context.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+          context.fill();
+        }
+
+        circle.strongestLinkOpacity = 0;
+      }
+    },
+    []
+  );
+
+  const update = useCallback(
+    (
+      canvas: HTMLCanvasElement,
+      context: CanvasRenderingContext2D,
+      deltaTime: number
+    ) => {
+      for (let circle of circlesRef.current) {
+        circle.move(deltaTime);
+        if (
+          circle.y < 0 ||
+          circle.y >= canvas.height ||
+          circle.x < 0 ||
+          circle.x >= canvas.width
+        ) {
+          circle.move(-deltaTime);
+          circle.speedAngle = Math.random() * Math.PI * 2;
+        }
       }
 
-      circle.strongestLinkOpacity = 0;
-    }
-  };
+      draw(canvas, context);
+    },
+    [draw]
+  );
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -132,10 +134,10 @@ export const PointLinkGridCanvas = () => {
       120
     );
 
-    circles = [];
+    circlesRef.current = [];
 
     for (let i = 0; i < circleAmount; i++)
-      circles.push(
+      circlesRef.current.push(
         new Circle(
           Math.random() * canvas.width,
           Math.random() * canvas.height,
@@ -146,18 +148,20 @@ export const PointLinkGridCanvas = () => {
     let frameId: number | undefined;
     const render = () => {
       // Prevent lag but never step more than 0.5s at a time because it causes a disgraceful jump on tab change
-      const deltaTime = Math.min(0.5, (Date.now() - lastUpdate) / 1000);
+      const now = Date.now();
+      const deltaTime = Math.min(0.5, (now - lastUpdateRef.current) / 1000);
+
       update(canvas, context, deltaTime);
-      frameId = requestAnimationFrame(render);
-      lastUpdate = Date.now();
+      frameId = window.requestAnimationFrame(render);
+      lastUpdateRef.current = now;
     };
 
     const updateMousePosition = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       const scaleX = canvas.width / rect.width;
       const scaleY = canvas.height / rect.height;
-      mouse.x = (e.clientX - rect.left) * scaleX;
-      mouse.y = (e.clientY - rect.top) * scaleY;
+      mouseRef.current.x = (e.clientX - rect.left) * scaleX;
+      mouseRef.current.y = (e.clientY - rect.top) * scaleY;
     };
 
     const resizeCanvas = () => {
@@ -174,12 +178,13 @@ export const PointLinkGridCanvas = () => {
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
       window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(frameId!);
+      if (frameId) window.cancelAnimationFrame(frameId);
     };
-  }, [draw]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [update]);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full blur-[2px]">
+    <div className="fixed top-0 left-0 w-full h-full blur-[2px] -z-50">
       <canvas ref={canvasRef} className="w-full h-full" />
     </div>
   );

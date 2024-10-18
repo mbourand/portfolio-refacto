@@ -91,7 +91,7 @@ export const About = forwardRef<HTMLDivElement, {}>(({}, ref) => (
         création de jeux en Java.{" "}
       </LifeSection>
       <LifeSection label="ETUDES" icon="/school.svg">
-        En Novembre 2019, je suis entré à l'École 42 après avoir participé à la
+        En Novembre 2019, je suis entré à l'École 42 après avoir terminé la
         piscine de septembre, à laquelle j'ai{" "}
         <strong className="text-blue-accent">obtenu la troisième place</strong>.
         Je souhaitais rejoindre l'École 42 pour en apprendre plus sur la
@@ -99,7 +99,8 @@ export const About = forwardRef<HTMLDivElement, {}>(({}, ref) => (
         <strong className="text-blue-accent">
           faire de ma passion mon métier
         </strong>
-        . J'y ai acquis une grande part de mes compétences.
+        . Grâce à cette formation, j'ai pu acquiérir des compétences techniques
+        et une méthodologie de travail.
       </LifeSection>
       <LifeSection label="INTEGRATION" icon="/work.svg">
         En Novembre 2022, j'ai débuté un stage de 6 mois chez Free, durant ce
@@ -109,7 +110,7 @@ export const About = forwardRef<HTMLDivElement, {}>(({}, ref) => (
         <strong className="text-blue-accent">
           en charge du développement des sites de Free Mobile
         </strong>{" "}
-        auxquels je contribue depuis plus d'un an.
+        auxquels je contribue depuis plus d'un an.{" "}
       </LifeSection>
       <LifeSection label="PASSION" icon="/passion.svg">
         Je réalise également des{" "}

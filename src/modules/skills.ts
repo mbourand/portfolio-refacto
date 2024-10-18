@@ -10,4 +10,5 @@ export enum Skills {
   PyTorch,
   Unity,
   CSharp,
+  Docker,
 }

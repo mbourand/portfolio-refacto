@@ -23,9 +23,9 @@ export default function Home() {
       <header>
         <NavBar.Root>
           <NavBar.Anchor anchorRef={heroRef}>Accueil</NavBar.Anchor>
-          <NavBar.Anchor anchorRef={skillsRef}>Compétences</NavBar.Anchor>
-          <NavBar.Anchor anchorRef={experiencesRef}>Expériences</NavBar.Anchor>
           <NavBar.Anchor anchorRef={journeyRef}>Parcours</NavBar.Anchor>
+          <NavBar.Anchor anchorRef={experiencesRef}>Projets</NavBar.Anchor>
+          <NavBar.Anchor anchorRef={skillsRef}>Compétences</NavBar.Anchor>
           <RotatingBorderButton
             rounded
             label="Me contacter"
@@ -43,9 +43,9 @@ export default function Home() {
             })
           }
         />
+        <About ref={journeyRef} />
         <Projects ref={experiencesRef} />
         <Skills ref={skillsRef} />
-        <About ref={journeyRef} />
       </main>
     </>
   );

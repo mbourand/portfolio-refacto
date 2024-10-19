@@ -55,7 +55,7 @@ const Root = forwardRef<HTMLDivElement, PropsWithChildren<{}>>(
       <nav
         ref={ref}
         className={twMerge(
-          "bg-slate-800/20 w-full max-w-[1200px] fixed top-2 z-40 flex flex-row justify-between items-center backdrop-blur-[7px] py-3 px-3 rounded-full left-1/2 -translate-x-1/2 transition-all duration-[250ms] ease-in(out",
+          "bg-slate-800/20 w-full max-w-[1200px] fixed top-2 z-40 flex flex-row justify-between gap-8 items-center backdrop-blur-[7px] py-3 px-3 rounded-full left-1/2 -translate-x-1/2 transition-all duration-[250ms] ease-in-out",
           lastScrollWasUp ? "" : "-translate-y-full opacity-0"
         )}
       >
@@ -68,9 +68,11 @@ const Root = forwardRef<HTMLDivElement, PropsWithChildren<{}>>(
             className="w-6 h-auto"
             priority
           />
-          <span className="text-lg">Maxime Bourand</span>
+          <span className="text-lg max-[850px]:hidden">Maxime Bourand</span>
         </div>
-        <div className="flex flex-row justify-end gap-16">{children}</div>
+        <div className="flex flex-row justify-end gap-8 min-[985px]:gap-16">
+          {children}
+        </div>
       </nav>
     );
   }

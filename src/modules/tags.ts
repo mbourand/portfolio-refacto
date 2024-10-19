@@ -14,4 +14,5 @@ export const TAGS: Record<Skills, TagProps> = {
   [Skills.Unity]: { label: "Unity", color: "#ffffff" },
   [Skills.CSharp]: { label: "C#", color: "#6e0885" },
   [Skills.Docker]: { label: "Docker", color: "#1d63ed" },
+  [Skills.Gamemaker]: { label: "Gamemaker", color: "#ffffff" },
 } as const;

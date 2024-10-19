@@ -1,19 +1,22 @@
 "use client";
 
+import { BeginningIcon } from "@/components/Icon/BeginningIcon";
+import { PassionIcon } from "@/components/Icon/PassionIcon";
+import { SchoolIcon } from "@/components/Icon/SchoolIcon";
+import { WorkIcon } from "@/components/Icon/WorkIcon";
 import { SectionTitle } from "@/components/Title/SectionTitle";
-import Image from "next/image";
 import { forwardRef, ReactNode } from "react";
 import { useInView } from "react-intersection-observer";
 import { twMerge } from "tailwind-merge";
 
 export const LifeSection = ({
   children,
-  icon,
+  Icon,
   label,
 }: {
   children: ReactNode;
   label: string;
-  icon?: string;
+  Icon: React.FC<{ className: string }>;
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -21,7 +24,10 @@ export const LifeSection = ({
   });
 
   return (
-    <div className="grid grid-cols-[min-content_1fr] gap-x-6 gap-y-2 w-fit mx-auto group items-center">
+    <div
+      ref={ref}
+      className="grid grid-cols-[min-content_1fr] gap-x-6 gap-y-2 w-fit mx-auto group items-center px-2 min-[600px]:px-8"
+    >
       <div className="relative">
         <div className="absolute bg-slate-700 h-[36px] w-[36px] rounded-full -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden">
           <div
@@ -32,20 +38,14 @@ export const LifeSection = ({
           />
         </div>
         <div className="bg-slate-950 h-[32px] w-[32px] rounded-full flex justify-center items-center group-hover:invert transition-all duration-[350ms] ease-in-out">
-          {icon && (
-            <Image
-              ref={ref}
-              className={
-                inView
-                  ? "animate-[spin-in_800ms_ease-in-out_forwards]"
-                  : "opacity-0"
-              }
-              width={24}
-              height={24}
-              src={icon}
-              alt=""
-            />
-          )}
+          <Icon
+            className={twMerge(
+              "w-6 h-6",
+              inView
+                ? "animate-[spin-in_800ms_ease-in-out_forwards]"
+                : "opacity-0"
+            )}
+          />
         </div>
       </div>
       <h3
@@ -82,7 +82,7 @@ export const About = forwardRef<HTMLDivElement, {}>(({}, ref) => (
   <section ref={ref} className="mb-24">
     <SectionTitle>Mon Parcours</SectionTitle>
     <div className="flex flex-col gap-2">
-      <LifeSection label="COMMENCEMENT" icon="/beginning.svg">
+      <LifeSection label="COMMENCEMENT" Icon={BeginningIcon}>
         Depuis mon plus jeune âge, je suis intéressé par l'informatique. Attiré
         par la création de plugins Minecraft, j'ai débuté la programmation en{" "}
         <strong className="text-blue-accent">autodidacte à 13 ans</strong>. Du
@@ -90,7 +90,7 @@ export const About = forwardRef<HTMLDivElement, {}>(({}, ref) => (
         parfois seul, comme dans le cas d'une bibliothèque facilitant la
         création de jeux en Java.{" "}
       </LifeSection>
-      <LifeSection label="ETUDES" icon="/school.svg">
+      <LifeSection label="ETUDES" Icon={SchoolIcon}>
         En Novembre 2019, je suis entré à l'École 42 après avoir terminé la
         piscine de septembre, à laquelle j'ai{" "}
         <strong className="text-blue-accent">obtenu la troisième place</strong>.
@@ -102,7 +102,7 @@ export const About = forwardRef<HTMLDivElement, {}>(({}, ref) => (
         . Grâce à cette formation, j'ai pu acquiérir des compétences techniques
         et une méthodologie de travail.
       </LifeSection>
-      <LifeSection label="INTEGRATION" icon="/work.svg">
+      <LifeSection label="INTEGRATION" Icon={WorkIcon}>
         En Novembre 2022, j'ai débuté un stage de 6 mois chez Free, durant ce
         stage, j'ai pu travailler sur des projets aux thèmes divers, traitant
         d'IA, de développement de jeux ou encore de développement web. Au terme
@@ -112,7 +112,7 @@ export const About = forwardRef<HTMLDivElement, {}>(({}, ref) => (
         </strong>{" "}
         auxquels je contribue depuis plus d'un an.{" "}
       </LifeSection>
-      <LifeSection label="PASSION" icon="/passion.svg">
+      <LifeSection label="PASSION" Icon={PassionIcon}>
         Je réalise également des{" "}
         <strong className="text-blue-accent">
           projets sur mon temps libre

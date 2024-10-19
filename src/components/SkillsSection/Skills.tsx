@@ -1,68 +1,10 @@
-import { CursorGlow } from "@/components/CursorGlow/CursorGlow";
+import { Skill } from "@/components/SkillsSection/Skill";
+import { SkillCategory } from "@/components/SkillsSection/SkillCategory";
 import { SectionTitle } from "@/components/Title/SectionTitle";
-import Image from "next/image";
-import { forwardRef, ReactNode, useRef } from "react";
+import { forwardRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { twMerge } from "tailwind-merge";
 
-type SkillProps = {
-  src: string;
-  label: string;
-  transitionDelay: string;
-  visible?: boolean;
-};
-
-export const SkillCategory = ({
-  label,
-  children,
-  className,
-  labelClassName,
-}: {
-  label: string;
-  children: ReactNode;
-  className?: string;
-  labelClassName?: string;
-}) => (
-  <div
-    className={twMerge(
-      "border-[3px] rounded-[30px] overflow-hidden",
-      className
-    )}
-  >
-    <p
-      className={twMerge(
-        "w-fit px-8 pt-[6px] pb-2 rounded-ee-[30px] text-sm",
-        labelClassName
-      )}
-    >
-      {label}
-    </p>
-    <div className="grid grid-cols-[repeat(2,max-content)] min-[620px]:grid-cols-[repeat(3,max-content)] min-[800px]:grid-cols-[repeat(4,max-content)] min-[1200px]:grid-cols-[repeat(6,max-content)] gap-16 p-8">
-      {children}
-    </div>
-  </div>
-);
-
-export const Skill = ({ src, label, transitionDelay, visible }: SkillProps) => (
-  <div
-    className={twMerge(
-      "w-20 flex flex-col items-center gap-4 group relative h-full justify-between transition-all duration-500",
-      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[25px]"
-    )}
-    style={{ transitionDelay }}
-  >
-    <Image
-      className="w-20 h-20 object-contain group-hover:scale-[105%] transition-all duration-500"
-      src={src}
-      width={300}
-      height={300}
-      alt=""
-    />
-    <p>{label}</p>
-  </div>
-);
-
-const SKILLS_CATEGORIES: {
+const SKILL_CATEGORIES: {
   label: string;
   className: string;
   labelClassName: string;
@@ -112,7 +54,7 @@ const SKILLS_CATEGORIES: {
 export const Skills = forwardRef<HTMLDivElement, {}>(({}, ref) => {
   const { ref: inViewRef, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "0px 0px -20% 0px",
+    rootMargin: "0px 0px -40% 0px",
   });
 
   return (
@@ -125,17 +67,18 @@ export const Skills = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         ref={inViewRef}
         className="bg-gray-900/60 p-8 max-[400px]:px-4 rounded-lg backdrop-blur-[6px] flex flex-col gap-8"
       >
-        {SKILLS_CATEGORIES.map((skillCategory, index) => (
+        {SKILL_CATEGORIES.map((skillCategory, categoryIndex) => (
           <SkillCategory
+            key={skillCategory.label}
             label={skillCategory.label}
             labelClassName={skillCategory.labelClassName}
             className={skillCategory.className}
           >
             {skillCategory.skills.map((skill, index) => (
               <Skill
-                key={index}
+                key={skill.label}
                 visible={inView}
-                transitionDelay={`${index * 200}ms`}
+                transitionDelay={(index + categoryIndex) * 200}
                 {...skill}
               />
             ))}

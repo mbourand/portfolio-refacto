@@ -11,4 +11,5 @@ export enum Skills {
   Unity,
   CSharp,
   Docker,
+  Gamemaker,
 }

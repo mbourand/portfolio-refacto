@@ -60,7 +60,7 @@ export const Skills = forwardRef<HTMLDivElement, {}>(({}, ref) => {
   return (
     <section
       ref={ref}
-      className="relative flex flex-col items-center justify-center py-12 w-full max-w-[1100px]"
+      className="relative flex flex-col items-center justify-center my-16 w-full max-w-[1100px]"
     >
       <SectionTitle>Mes compétences</SectionTitle>
       <div

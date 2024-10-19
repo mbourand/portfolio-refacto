@@ -73,7 +73,7 @@ export const Projects = forwardRef<HTMLDivElement, {}>(({}, ref) => {
   return (
     <section
       ref={ref}
-      className="flex flex-col items-center justify-center py-12 w-full overflow-hidden max-w-[1400px]"
+      className="flex flex-col items-center justify-center my-16 w-full overflow-hidden max-w-[1400px]"
     >
       <SectionTitle>Mes Projets</SectionTitle>
       <div className="flex flex-row gap-16 flex-wrap justify-center">

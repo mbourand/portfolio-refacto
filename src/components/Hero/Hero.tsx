@@ -35,20 +35,21 @@ export const Hero = forwardRef<HTMLDivElement, { onKnowMoreClick: () => void }>(
         </div>
         <div className="min-w-[300px] min-[880px]:min-w-[350px] overflow-hidden rounded-full relative group">
           <Image
-            width={1252}
-            height={1252}
+            width={626}
+            height={626}
             className="w-[300px] min-[880px]:w-[350px] group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300 ease-in-out h-auto"
             src="/maxime-bourand.webp"
             alt="Maxime Bourand souriant dans un jardin entourant un lac"
+            placeholder="blur"
+            blurDataURL="/maxime-bourand-blur.webp"
             priority
           />
           <Image
-            width={1252}
-            height={1252}
+            width={626}
+            height={626}
             className="absolute top-0 left-0 w-[300px] min-[880px]:w-[350px] group-hover:scale-105 transition-all duration-300 ease-in-out h-auto"
-            src="/maxime-bourand-nobg.png"
+            src="/maxime-bourand-nobg.webp"
             alt="Maxime Bourand souriant dans un jardin entourant un lac"
-            priority
           />
         </div>
       </div>

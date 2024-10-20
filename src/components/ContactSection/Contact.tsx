@@ -21,15 +21,15 @@ export const Contact = forwardRef<HTMLDivElement, {}>(({}, ref) => {
             className="w-[150px] group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300 ease-in-out h-auto"
             src="/maxime-bourand.webp"
             alt="Maxime Bourand souriant dans un jardin entourant un lac"
-            priority
+            placeholder="blur"
+            blurDataURL="/maxime-bourand-blur.webp"
           />
           <Image
             width={1252}
             height={1252}
             className="absolute top-0 left-0 w-[150px] group-hover:scale-105 transition-all duration-300 ease-in-out h-auto"
-            src="/maxime-bourand-nobg.png"
+            src="/maxime-bourand-nobg.webp"
             alt="Maxime Bourand souriant dans un jardin entourant un lac"
-            priority
           />
         </div>
         <div className="flex flex-col gap-4 justify-center">

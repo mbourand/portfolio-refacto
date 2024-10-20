@@ -123,7 +123,7 @@ export const PointLinkGridCanvas = () => {
     [draw]
   );
 
-  useEffect(() => {
+  const init = useCallback(() => {
     const canvas = canvasRef.current;
     const context = canvas?.getContext("2d");
 
@@ -144,6 +144,15 @@ export const PointLinkGridCanvas = () => {
           Math.random() * 2 + 1
         )
       );
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d");
+
+    if (!canvas || !context) return;
+
+    init();
 
     let frameId: number | undefined;
     const render = () => {
@@ -167,6 +176,7 @@ export const PointLinkGridCanvas = () => {
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      init();
     };
 
     window.addEventListener("mousemove", updateMousePosition);

@@ -34,7 +34,7 @@ export const Socials = () => (
     </Link>
     <div className="flex flex-row gap-2 items-center">
       <MailIcon className="w-6 h-6" />
-      <span>shirowderable@gmail.com</span>
+      <span>me@mbourand.fr</span>
     </div>
   </div>
 );

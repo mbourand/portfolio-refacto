@@ -14,12 +14,15 @@ import { RocketIcon } from "@/components/Icon/RocketIcon";
 import { NavBar } from "@/components/NavBar/NavBar";
 import { RotatingBorderButton } from "@/components/Button/RotatingBorderButton";
 import { HomeIcon } from "@/components/Icon/HomeIcon";
+import { scrollToRef } from "@/modules/scroll";
+import { Contact } from "@/components/ContactSection/Contact";
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const journeyRef = useRef<HTMLDivElement>(null);
   const experiencesRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
@@ -56,23 +59,16 @@ export default function Home() {
           <RotatingBorderButton
             rounded
             label="Me contacter"
-            onClick={() => {}}
+            onClick={() => scrollToRef(contactRef)}
           />
         </NavBar.Root>
       </header>
       <main className="min-h-screen flex flex-col items-center">
-        <Hero
-          ref={heroRef}
-          onKnowMoreClick={() =>
-            journeyRef.current?.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            })
-          }
-        />
+        <Hero ref={heroRef} onKnowMoreClick={() => scrollToRef(journeyRef)} />
         <About ref={journeyRef} />
         <Projects ref={experiencesRef} />
         <Skills ref={skillsRef} />
+        <Contact ref={contactRef} />
       </main>
     </>
   );

@@ -45,12 +45,12 @@ const PROJECTS = [
     runHref: "https://melimelodies.com",
   },
   {
-    videoUrl: "/projects/deltarunefr.mp4",
-    title: "Generative Adversarial Network",
-    annotation: "2023",
+    videoUrl: "/projects/gameboyemulator.mp4",
+    title: "Gameboy Emulator",
+    annotation: "2024 - En cours",
     description:
-      "Ce projet consiste en la réalisation d'un modèle d'intelligence artificielle permettant la génération d'images à la volée en se basant sur des données d'entainement. Il est basé sur l'architecture de StyleGAN 2, une architecture longtemps reconnue comme la meilleure pour la génération d'images",
-    tags: [TAGS[Skills.Python], TAGS[Skills.PyTorch]],
+      "L'objectif de ce projet est de créer un programme reproduisant le fonctionnement des composants électroniques d'une Gameboy afin de pouvoir lancer des jeux Gameboy sur ordinateur. Ce projet est encore en cours de développement, mais permet déjà de jouer à certains jeux simples.",
+    tags: [TAGS[Skills.CSharp], TAGS[Skills.MonoGame]],
   },
   {
     videoUrl: "/projects/undertaleddd.mp4",

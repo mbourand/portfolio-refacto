@@ -57,3 +57,5 @@ export const Hero = forwardRef<HTMLDivElement, { onKnowMoreClick: () => void }>(
     </section>
   )
 );
+
+Hero.displayName = "Hero";

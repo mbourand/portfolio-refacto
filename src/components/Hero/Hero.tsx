@@ -1,5 +1,6 @@
 import { RotatingBorderButton } from "@/components/Button/RotatingBorderButton";
 import { Socials } from "@/components/Hero/Socials";
+import { headers } from "next/headers";
 import Image from "next/image";
 import { forwardRef } from "react";
 
@@ -56,5 +57,3 @@ export const Hero = forwardRef<HTMLDivElement, { onKnowMoreClick: () => void }>(
     </section>
   )
 );
-
-Hero.displayName = "Hero";

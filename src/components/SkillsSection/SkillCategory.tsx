@@ -14,12 +14,7 @@ export const SkillCategory = ({
   className,
   labelClassName,
 }: SkillCategoryProps) => (
-  <div
-    className={twMerge(
-      "border-[3px] rounded-[30px] overflow-hidden",
-      className
-    )}
-  >
+  <div className={twMerge("rounded-[30px] overflow-hidden", className)}>
     <p
       className={twMerge(
         "w-fit px-8 pt-[6px] pb-2 rounded-ee-[30px] text-sm",

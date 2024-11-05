@@ -42,7 +42,6 @@ export const ProjectCard = ({
 
   useEffect(() => {
     if (inView) {
-      videoRef?.current?.play();
       setStartSlideIn(true);
     } else {
       videoRef?.current?.pause();
@@ -74,6 +73,8 @@ export const ProjectCard = ({
           muted
           preload="metadata"
           className="w-full h-full"
+          onMouseEnter={() => videoRef?.current?.play()}
+          onMouseLeave={() => videoRef?.current?.pause()}
         />
       </div>
       <div className="flex flex-row justify-between items-center">

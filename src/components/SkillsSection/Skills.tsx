@@ -12,7 +12,7 @@ const SKILL_CATEGORIES: {
 }[] = [
   {
     label: "Développement Web",
-    className: "border-yellow-400 bg-yellow-400/10",
+    className: "bg-yellow-400/10",
     labelClassName: "bg-yellow-400 text-black",
     skills: [
       { label: "NextJS", src: "/skills/nextjs.svg" },
@@ -25,7 +25,7 @@ const SKILL_CATEGORIES: {
   },
   {
     label: "Développement Logiciel",
-    className: "border-purple-800 bg-purple-800/10",
+    className: "bg-purple-800/10",
     labelClassName: "bg-purple-800",
     skills: [
       { label: "C", src: "/skills/c.png" },
@@ -38,7 +38,7 @@ const SKILL_CATEGORIES: {
   },
   {
     label: "Autres",
-    className: "border-white bg-white/5",
+    className: "bg-white/5",
     labelClassName: "bg-white text-black",
     skills: [
       { label: "Unity", src: "/skills/unity.png" },

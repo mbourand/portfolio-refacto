@@ -68,7 +68,7 @@ export const LifeSection = ({
       </div>
       <p
         className={twMerge(
-          "text-left md:text-justify max-w-[1000px] text-lg mt-2 mb-4 min-h-[120px] opacity-0 translate-y-16 transition-all delay-200 duration-[700ms] ease-in-out",
+          "text-left md:text-justify max-w-[1000px] md:text-lg mt-2 mb-4 min-h-[120px] opacity-0 translate-y-16 transition-all delay-200 duration-[700ms] ease-in-out",
           inView && "opacity-100 translate-y-0"
         )}
       >

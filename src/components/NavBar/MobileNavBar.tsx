@@ -29,7 +29,7 @@ const Root = forwardRef<HTMLDivElement, PropsWithChildren<{ className: string }>
         className
       )}
     >
-      <div className="flex flex-row justify-center gap-12 mx-auto bg-gray-900/60 py-3 px-6 rounded-full backdrop-blur-[6px] w-fit">
+      <div className="flex flex-row justify-center gap-8 min-[400px]:gap-12 mx-auto bg-gray-900/60 py-3 px-6 rounded-full backdrop-blur-[6px] w-fit">
         {children}
       </div>
     </nav>

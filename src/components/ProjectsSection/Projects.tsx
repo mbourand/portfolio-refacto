@@ -81,7 +81,7 @@ export const Projects = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         ))}
       </div>
       {!seeMore && (
-        <RotatingBorderButton className="mt-8" label="Voir d'autres projets" onClick={() => setSeeMore(true)} />
+        <RotatingBorderButton className="mt-16" label="Voir d'autres projets" onClick={() => setSeeMore(true)} />
       )}
     </section>
   )

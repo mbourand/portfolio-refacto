@@ -1,18 +1,18 @@
-import Image from "next/image";
-import { twMerge } from "tailwind-merge";
+import Image from 'next/image'
+import { twMerge } from 'tailwind-merge'
 
 type SkillProps = {
-  src: string;
-  label: string;
-  transitionDelay: number;
-  visible?: boolean;
-};
+  src: string
+  label: string
+  transitionDelay: number
+  visible?: boolean
+}
 
 export const Skill = ({ src, label, transitionDelay, visible }: SkillProps) => (
   <div
     className={twMerge(
-      "w-20 flex flex-col items-center gap-4 group relative h-full justify-between transition-all duration-500",
-      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[25px]"
+      'w-20 flex flex-col items-center gap-4 group relative h-full justify-between transition-all duration-500',
+      visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[25px]'
     )}
     style={{ transitionDelay: `${transitionDelay}ms` }}
   >
@@ -25,4 +25,4 @@ export const Skill = ({ src, label, transitionDelay, visible }: SkillProps) => (
     />
     <p>{label}</p>
   </div>
-);
+)

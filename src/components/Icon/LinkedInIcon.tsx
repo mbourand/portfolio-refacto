@@ -13,4 +13,4 @@ export const LinkedInIcon = ({ className }: { className?: string }) => (
       </g>
     </svg>
   </i>
-);
+)

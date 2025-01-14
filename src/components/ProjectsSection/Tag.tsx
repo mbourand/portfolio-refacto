@@ -1,7 +1,7 @@
 export type TagProps = {
-  label: string;
-  color: string;
-};
+  label: string
+  color: string
+}
 
 export const Tag = ({ label, color }: TagProps) => (
   <div
@@ -11,4 +11,4 @@ export const Tag = ({ label, color }: TagProps) => (
     <span className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
     <span className="text-xs rounded-full">{label}</span>
   </div>
-);
+)

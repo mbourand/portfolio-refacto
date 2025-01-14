@@ -1,17 +1,14 @@
-import { RotatingBorderButton } from "@/components/Button/RotatingBorderButton";
-import { LinkedInIcon } from "@/components/Icon/LinkedInIcon";
-import { MailIcon } from "@/components/Icon/MailIcon";
-import { SectionTitle } from "@/components/Title/SectionTitle";
-import Image from "next/image";
-import Link from "next/link";
-import { forwardRef } from "react";
+import { RotatingBorderButton } from '@/components/Button/RotatingBorderButton'
+import { LinkedInIcon } from '@/components/Icon/LinkedInIcon'
+import { MailIcon } from '@/components/Icon/MailIcon'
+import { SectionTitle } from '@/components/Title/SectionTitle'
+import Image from 'next/image'
+import Link from 'next/link'
+import { forwardRef } from 'react'
 
 export const Contact = forwardRef<HTMLDivElement, {}>(({}, ref) => {
   return (
-    <section
-      ref={ref}
-      className="relative flex flex-col items-center justify-center my-16 w-full max-w-[1100px]"
-    >
+    <section ref={ref} className="relative flex flex-col items-center justify-center my-16 w-full max-w-[1100px]">
       <SectionTitle>Mon profil vous intéresse&nbsp;?</SectionTitle>
       <div className="bg-gray-900/60 backdrop-blur-[6px] rounded-lg p-8 flex flex-row max-[676px]:flex-col gap-8 justify-center items-center">
         <div className="w-[150px] overflow-hidden rounded-full relative group">
@@ -43,27 +40,23 @@ export const Contact = forwardRef<HTMLDivElement, {}>(({}, ref) => {
           >
             <LinkedInIcon className="w-8 h-8 mt-[-8px]" />
             <div className="relative">
-              <span className="transition-all group-hover:text-blue-accent text-xl">
-                LinkedIn
-              </span>
+              <span className="transition-all group-hover:text-blue-accent text-xl">LinkedIn</span>
               <div className="absolute bottom-0 h-[1px] w-full bg-white scale-x-0 group-hover:scale-x-100 transition-all duration-200" />
             </div>
           </Link>
           <div className="flex flex-row gap-2 items-center">
             <MailIcon className="w-8 h-8" />
-            <span className="transition-all group-hover:text-blue-accent text-xl">
-              me@mbourand.fr
-            </span>
+            <span className="transition-all group-hover:text-blue-accent text-xl">me@mbourand.fr</span>
           </div>
         </div>
       </div>
       <RotatingBorderButton
         className="mt-12"
         label="Retourner en haut"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       />
     </section>
-  );
-});
+  )
+})
 
-Contact.displayName = "Contact";
+Contact.displayName = 'Contact'

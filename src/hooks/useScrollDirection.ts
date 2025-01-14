@@ -1,25 +1,25 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react'
 
 export const useScrollDirection = () => {
-  const [lastScrollWasUp, setLastScrollWasUp] = useState(true);
-  const lastScrollTop = useRef(0);
+  const [lastScrollWasUp, setLastScrollWasUp] = useState(true)
+  const lastScrollTop = useRef(0)
 
   useEffect(() => {
-    lastScrollTop.current = window.scrollY;
+    lastScrollTop.current = window.scrollY
 
     const handleScrollState = () => {
-      const isScrollTooSlow =
-        Math.abs(window.scrollY - lastScrollTop.current) < 5;
-      if (isScrollTooSlow) return;
-      const currentScrollTop = window.scrollY;
-      setLastScrollWasUp(currentScrollTop < lastScrollTop.current);
-      lastScrollTop.current = currentScrollTop;
-    };
+      const isScrollTooSlow = Math.abs(window.scrollY - lastScrollTop.current) < 5
+      if (isScrollTooSlow) return
 
-    window.addEventListener("scroll", handleScrollState);
+      const currentScrollTop = window.scrollY
+      setLastScrollWasUp(currentScrollTop < lastScrollTop.current)
+      lastScrollTop.current = currentScrollTop
+    }
 
-    return () => window.removeEventListener("scroll", handleScrollState);
-  }, []);
+    window.addEventListener('scroll', handleScrollState)
 
-  return lastScrollWasUp;
-};
+    return () => window.removeEventListener('scroll', handleScrollState)
+  }, [])
+
+  return lastScrollWasUp
+}

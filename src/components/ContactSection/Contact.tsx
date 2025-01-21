@@ -12,18 +12,12 @@ export const Contact = forwardRef<HTMLDivElement, {}>(({}, ref) => {
       <SectionTitle>Mon profil vous intéresse&nbsp;?</SectionTitle>
       <div className="bg-gray-900/60 backdrop-blur-[6px] rounded-lg p-8 flex flex-row max-[676px]:flex-col gap-8 justify-center items-center">
         <div className="w-[150px] overflow-hidden rounded-full relative group">
-          <Image
-            width={1252}
-            height={1252}
+          <img
             className="w-[150px] group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300 ease-in-out h-auto"
             src="/maxime-bourand.webp"
             alt="Maxime Bourand souriant dans un jardin entourant un lac"
-            placeholder="blur"
-            blurDataURL="/maxime-bourand-blur.webp"
           />
-          <Image
-            width={1252}
-            height={1252}
+          <img
             className="absolute top-0 left-0 w-[150px] group-hover:scale-105 transition-all duration-300 ease-in-out h-auto"
             src="/maxime-bourand-nobg.webp"
             alt="Maxime Bourand souriant dans un jardin entourant un lac"

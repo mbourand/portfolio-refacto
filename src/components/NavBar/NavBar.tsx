@@ -1,6 +1,5 @@
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { scrollToRef } from '@/modules/scroll'
-import Image from 'next/image'
 import { forwardRef, PropsWithChildren, RefObject } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -32,7 +31,7 @@ const Root = forwardRef<HTMLDivElement, PropsWithChildren<{ className?: string }
       )}
     >
       <div className="flex flex-row items-center gap-4 ml-1">
-        <Image width={232} height={232} src="/logo.webp" alt="" className="w-6 h-auto" priority />
+        <img src="/logo.webp" alt="" className="w-6 h-auto" />
         <span className="text-lg max-[850px]:hidden">Maxime Bourand</span>
       </div>
       <div className="flex flex-row justify-end gap-8 min-[985px]:gap-16">{children}</div>

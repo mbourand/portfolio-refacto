@@ -22,7 +22,7 @@ const PROJECTS = [
     description:
       "Deltarune FR est la traduction communautaire française du jeu DELTARUNE. J'ai fondé ce projet en 2018 avec une équipe d'environ 10 personnes. Suite à une fusion une autre équipe travaillant sur le jeu, notre équipe compte une vingtaine de membres pour une communauté de milliers de joueurs.",
     tags: [TAGS[Skills.VueJS], TAGS[Skills.CPP], TAGS[Skills.TeamWork]],
-    runHref: 'https://deltarune.fr',
+    runHref: 'https://deltarune-fr.com',
     sourceHref: 'https://github.com/mbourand/deltarune-fr-patcher'
   },
   {

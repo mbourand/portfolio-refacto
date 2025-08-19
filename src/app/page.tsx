@@ -34,14 +34,13 @@ export default function Home() {
         <MobileNavBar.Root className="min-[650px]:hidden">
           <MobileNavBar.Anchor anchorRef={heroRef} label="Accueil" Icon={HomeIcon} />
           <MobileNavBar.Anchor anchorRef={journeyRef} label="Parcours" Icon={ParchmentIcon} />
-          <MobileNavBar.Anchor anchorRef={experiencesRef} label="Projets" Icon={RocketIcon} />
-          <MobileNavBar.Anchor anchorRef={skillsRef} label="Compét." Icon={ToolIcon} />
+          <MobileNavBar.Anchor anchorRef={experiencesRef} label="Expériences" Icon={RocketIcon} />
+          <MobileNavBar.Anchor anchorRef={skillsRef} label="Skills" Icon={ToolIcon} />
         </MobileNavBar.Root>
         <NavBar.Root className="max-[650px]:hidden">
           <NavBar.Anchor anchorRef={heroRef}>Accueil</NavBar.Anchor>
           <NavBar.Anchor anchorRef={journeyRef}>Parcours</NavBar.Anchor>
           <NavBar.Anchor anchorRef={experiencesRef}>Expériences</NavBar.Anchor>
-          <NavBar.Anchor anchorRef={projectsRef}>Projets</NavBar.Anchor>
           <NavBar.Anchor anchorRef={skillsRef}>Compétences</NavBar.Anchor>
           <RotatingBorderButton rounded label="Me contacter" onClick={() => scrollToRef(contactRef)} />
         </NavBar.Root>

@@ -20,7 +20,7 @@ Anchor.displayName = 'MobileNavBar.Anchor'
 
 const Root = forwardRef<HTMLDivElement, PropsWithChildren<{ className: string }>>(({ children, className }, ref) => {
   return (
-    <nav ref={ref} className={twMerge('fixed bottom-2 w-full z-50 transition-all duration-[250ms]', className)}>
+    <nav ref={ref} className={twMerge('fixed bottom-2 w-full z-50 transition-all duration-250', className)}>
       <div className="flex flex-row justify-center gap-8 min-[400px]:gap-12 mx-auto bg-gray-900/60 py-3 px-6 rounded-full backdrop-blur-[6px] w-fit">
         {children}
       </div>

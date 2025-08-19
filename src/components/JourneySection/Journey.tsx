@@ -32,12 +32,12 @@ export const LifeSection = ({
         <div className="absolute bg-slate-700 h-[36px] w-[36px] rounded-full -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden">
           <div
             className={twMerge(
-              'absolute bg-slate-100 h-full w-full -z-10 top-0 left-1/2 -translate-x-1/2 -translate-y-full transition-all duration-[800ms] rounded-full',
+              'absolute bg-slate-100 h-full w-full -z-10 top-0 left-1/2 -translate-x-1/2 -translate-y-full transition-all duration-800 rounded-full',
               inView && '-translate-y-0'
             )}
           />
         </div>
-        <div className="bg-slate-950 h-[32px] w-[32px] rounded-full flex justify-center items-center group-hover:invert transition-all duration-[350ms] ease-in-out">
+        <div className="bg-slate-950 h-[32px] w-[32px] rounded-full flex justify-center items-center group-hover:invert transition-all duration-350 ease-in-out">
           <Icon className={twMerge('w-6 h-6', inView ? 'animate-[spin-in_800ms_ease-in-out_forwards]' : 'opacity-0')} />
         </div>
       </div>
@@ -53,7 +53,7 @@ export const LifeSection = ({
         <div className="relative w-[3px] h-full bg-slate-700 overflow-hidden">
           <div
             className={twMerge(
-              'absolute h-full top-0 left-1/2 -translate-x-1/2 w-[3px] delay-[450ms] bg-slate-100 origin-top -translate-y-full transition-all duration-[1500ms]',
+              'absolute h-full top-0 left-1/2 -translate-x-1/2 w-[3px] delay-450 bg-slate-100 origin-top -translate-y-full transition-all duration-1500',
               inView && 'translate-y-0'
             )}
           />
@@ -61,7 +61,7 @@ export const LifeSection = ({
       </div>
       <p
         className={twMerge(
-          'text-left md:text-justify max-w-[1000px] md:text-lg mt-2 mb-4 min-h-[120px] opacity-0 translate-y-16 transition-all delay-200 duration-[700ms] ease-in-out',
+          'text-left md:text-justify max-w-[1000px] md:text-lg mt-2 mb-4 min-h-[120px] opacity-0 translate-y-16 transition-all delay-200 duration-700 ease-in-out',
           inView && 'opacity-100 translate-y-0'
         )}
       >

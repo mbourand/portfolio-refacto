@@ -1,8 +1,25 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-blue-accent: #4cc9f0;
+
+  --background-image-rotating-border-background: conic-gradient(#4361ee, #3a0ca3, #000000, #4361ee);
+  --background-image-highlight-gradient: linear-gradient(90deg, #4cc9f0, #c08ef5, #4cc9f0);
+  --background-image-radial-glow: radial-gradient(closest-side, #4cc9f023, #4cc9f000);
+  --background-image-radial-glow-white: radial-gradient(circle, #ffffff10 0%, #ffffff00 50%);
+
+  @keyframes spin-in {
+    0% {
+      transform: rotate(180deg);
+      opacity: 0%;
+    }
+    100% {
+      transform: rotate(360deg);
+      opacity: 100%;
+    }
+  }
+}
 
 body {
-  background-color: #020617;
   @apply bg-slate-950 text-slate-100;
 }

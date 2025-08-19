@@ -52,7 +52,7 @@ export const ProjectCard = ({
     <div
       ref={cardRef}
       className={twMerge(
-        'relative bg-gray-900/60 p-4 rounded-lg backdrop-blur-[6px] flex flex-col gap-4 overflow-hidden max-w-[650px] transition-all duration-[670ms]',
+        'relative bg-gray-900/60 p-4 rounded-lg backdrop-blur-[6px] flex flex-col gap-4 overflow-hidden max-w-[650px] transition-all duration-670',
         slideInDirection === 'left' && 'opacity-0 translate-x-[100px]',
         slideInDirection === 'right' && 'opacity-0 -translate-x-[100px]',
         startSlideIn && 'opacity-100 translate-x-0',
@@ -75,6 +75,7 @@ export const ProjectCard = ({
           className="w-full h-full"
           onMouseEnter={() => videoRef?.current?.play()}
           onMouseLeave={() => videoRef?.current?.pause()}
+          disablePictureInPicture
         />
       </div>
       <div className="flex flex-row justify-between items-center">

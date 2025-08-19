@@ -16,7 +16,7 @@ export const Hero = forwardRef<HTMLDivElement, { knowMoreScrollId: string; id?: 
         <div>
           <p className="text-4xl min-[880px]:text-5xl w-fit mb-4 max-[750px]:mx-auto">
             Bonjour, je suis{' '}
-            <span className="bg-highlight-gradient bg-[length:200%] hover:bg-right bg-clip-text text-transparent font-semibold transition-all duration-700 ease-in-out">
+            <span className="bg-highlight-gradient bg-size-[200%] hover:bg-right bg-clip-text text-transparent font-semibold transition-all duration-700 ease-in-out">
               Maxime&nbsp;Bourand
             </span>
           </p>

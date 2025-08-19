@@ -30,7 +30,7 @@ export const NavBarRoot = forwardRef<HTMLDivElement, PropsWithChildren<{ classNa
       <nav
         ref={ref}
         className={twMerge(
-          'bg-slate-800/20 w-full max-w-[1200px] fixed top-2 z-40 flex flex-row justify-between gap-8 items-center backdrop-blur-[7px] py-3 px-3 rounded-full left-1/2 -translate-x-1/2 transition-all duration-[250ms]',
+          'bg-slate-800/20 w-full max-w-[1200px] fixed top-2 z-40 flex flex-row justify-between gap-8 items-center backdrop-blur-[7px] py-3 px-3 rounded-full left-1/2 -translate-x-1/2 transition-all duration-250',
           lastScrollWasUp ? '' : '-translate-y-full opacity-0',
           className
         )}

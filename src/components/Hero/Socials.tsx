@@ -14,14 +14,14 @@ export const Socials = () => (
       <LinkedInIcon className="w-6 h-6 mt-[-4px]" />
       <div>
         <span className="transition-all group-hover:text-blue-accent">LinkedIn</span>
-        <div className="h-[1px] w-full bg-white scale-x-0 group-hover:scale-x-100 transition-all duration-200" />
+        <div className="h-px w-full bg-white scale-x-0 group-hover:scale-x-100 transition-all duration-200" />
       </div>
     </Link>
     <Link target="_blank" href="https://github.com/mbourand" className="flex flex-row gap-2 items-center group">
       <GithubIcon className="w-6 h-6" />
       <div>
         <span className="transition-all group-hover:text-blue-accent">Github</span>
-        <div className="h-[1px] w-full bg-white scale-x-0 group-hover:scale-x-100 transition-all duration-200" />
+        <div className="h-px w-full bg-white scale-x-0 group-hover:scale-x-100 transition-all duration-200" />
       </div>
     </Link>
     <div className="flex flex-row gap-2 items-center">

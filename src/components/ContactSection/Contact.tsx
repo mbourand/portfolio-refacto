@@ -38,7 +38,7 @@ export const Contact = forwardRef<HTMLDivElement, { id?: string }>(({ id }, ref)
             <LinkedInIcon className="w-8 h-8 mt-[-8px]" />
             <div className="relative">
               <span className="transition-all group-hover:text-blue-accent text-xl">LinkedIn</span>
-              <div className="absolute bottom-0 h-[1px] w-full bg-white scale-x-0 group-hover:scale-x-100 transition-all duration-200" />
+              <div className="absolute bottom-0 h-px w-full bg-white scale-x-0 group-hover:scale-x-100 transition-all duration-200" />
             </div>
           </Link>
           <div className="flex flex-row gap-2 items-center">

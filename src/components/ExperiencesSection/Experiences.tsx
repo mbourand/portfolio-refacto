@@ -1,10 +1,12 @@
+'use client'
+
 import { RotatingBorderButton } from '@/components/Button/RotatingBorderButton'
 import { ProjectCard } from '@/components/ProjectsSection/ProjectCard'
 import { SectionTitle } from '@/components/Title/SectionTitle'
 import { Skills } from '@/modules/skills'
 import { TAGS } from '@/modules/tags'
 import Link from 'next/link'
-import { forwardRef, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 
 const EXPERIENCES = [
   {
@@ -116,8 +118,13 @@ const EXPERIENCES = [
 
 export const Experiences = forwardRef<HTMLDivElement, {}>(({}, ref) => {
   const [seeMore, setSeeMore] = useState(false)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
 
-  const visibleProjects = seeMore || window.innerWidth >= 500 ? EXPERIENCES : EXPERIENCES.slice(0, 1)
+  useEffect(() => {
+    setIsSmallScreen(window.innerWidth < 800)
+  }, [])
+
+  const visibleProjects = seeMore || !isSmallScreen ? EXPERIENCES : EXPERIENCES.slice(0, 1)
 
   return (
     <section ref={ref} className="flex flex-col items-center justify-center my-16 w-full overflow-hidden">
@@ -127,7 +134,7 @@ export const Experiences = forwardRef<HTMLDivElement, {}>(({}, ref) => {
           <ProjectCard key={project.title} {...project} slideInDirection={index % 2 === 0 ? 'right' : 'left'} />
         ))}
       </div>
-      {!seeMore && (
+      {!seeMore && isSmallScreen && (
         <RotatingBorderButton className="mt-16" label="Voir d'autres expériences" onClick={() => setSeeMore(true)} />
       )}
     </section>

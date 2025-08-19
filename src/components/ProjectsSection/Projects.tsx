@@ -3,7 +3,7 @@ import { ProjectCard } from '@/components/ProjectsSection/ProjectCard'
 import { SectionTitle } from '@/components/Title/SectionTitle'
 import { Skills } from '@/modules/skills'
 import { TAGS } from '@/modules/tags'
-import { forwardRef, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 
 const PROJECTS = [
   {
@@ -58,8 +58,13 @@ const PROJECTS = [
 
 export const Projects = forwardRef<HTMLDivElement, {}>(({}, ref) => {
   const [seeMore, setSeeMore] = useState(false)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
 
-  const visibleProjects = seeMore ? PROJECTS : PROJECTS.slice(0, window.innerWidth < 500 ? 1 : 2)
+  useEffect(() => {
+    setIsSmallScreen(window.innerWidth < 800)
+  }, [])
+
+  const visibleProjects = seeMore ? PROJECTS : PROJECTS.slice(0, isSmallScreen ? 1 : 2)
 
   return (
     <section

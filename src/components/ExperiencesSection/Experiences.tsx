@@ -1,9 +1,10 @@
+import { RotatingBorderButton } from '@/components/Button/RotatingBorderButton'
 import { ProjectCard } from '@/components/ProjectsSection/ProjectCard'
 import { SectionTitle } from '@/components/Title/SectionTitle'
 import { Skills } from '@/modules/skills'
 import { TAGS } from '@/modules/tags'
 import Link from 'next/link'
-import { forwardRef } from 'react'
+import { forwardRef, useState } from 'react'
 
 const EXPERIENCES = [
   {
@@ -16,9 +17,9 @@ const EXPERIENCES = [
         SmartTV en avril 2025.
         <br />
         <br />
-        Depuis mon arrivée, je tente d'apporter des{' '}
-        <strong className="font-semibold text-blue-accent">propositions uniques</strong> conciliant UX, DX et
-        optimisation face aux contraintes particulières de performance et de compatibilité des SmartTV.
+        Depuis mon arrivée, je tente d'apporter au projet des{' '}
+        <strong className="font-semibold text-blue-accent">solutions novatrices</strong> conciliant UX, DX et
+        optimisation, face aux contraintes de performance et de compatibilité des SmartTV.
         <br />
         <br />
         Mes principales contributions incluent :
@@ -79,8 +80,8 @@ const EXPERIENCES = [
             <span>-</span>
             <span>
               Une <strong className="font-semibold text-blue-accent">refonte intégrale</strong> de l'architecture du
-              système de souscription, la rendant modulaire et permettant d'implémenter des nouveaux canaux de
-              souscription en quelques heures seulement.
+              système de souscription, permettant d'implémenter des nouveaux canaux de souscription en quelques heures
+              seulement.
             </span>
           </div>
           <div className="flex flex-row gap-2">
@@ -88,19 +89,19 @@ const EXPERIENCES = [
             <span>
               La création d'une <strong className="font-semibold text-blue-accent">saisie d'adresse en un champ</strong>
               , suggérant des adresses à partir de l'entrée utilisateur tout en respectant les fortes contraintes de
-              performances et de fiabilité, les factures devant pouvoir servir de justificatif de domicile.
+              performances et de fiabilité.
             </span>
           </div>
           <div className="flex flex-row gap-2">
             <span>-</span>
             <span>
-              L'implémentation de systèmes TypeScript avancés, permettant entre autre l'implémentation de{' '}
+              L'implémentation de systèmes TypeScript avancés, permettant entre autres l'implémentation de{' '}
               <Link
                 target="_blank"
                 href="https://github.com/mbourand/next-typed-middlewares"
                 className="text-blue-accent underline font-semibold"
               >
-                middlewares fortement typés sur les routes NextJS
+                middlewares typés sur les routes NextJS
               </Link>
               .
             </span>
@@ -114,17 +115,21 @@ const EXPERIENCES = [
 ]
 
 export const Experiences = forwardRef<HTMLDivElement, {}>(({}, ref) => {
+  const [seeMore, setSeeMore] = useState(false)
+
+  const visibleProjects = seeMore || window.innerWidth >= 500 ? EXPERIENCES : EXPERIENCES.slice(0, 1)
+
   return (
-    <section
-      ref={ref}
-      className="flex flex-col items-center justify-center my-16 w-full overflow-hidden max-w-[1400px]"
-    >
+    <section ref={ref} className="flex flex-col items-center justify-center my-16 w-full overflow-hidden">
       <SectionTitle>Mes Expériences</SectionTitle>
       <div className="flex flex-row gap-16 flex-wrap justify-center">
-        {EXPERIENCES.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <ProjectCard key={project.title} {...project} slideInDirection={index % 2 === 0 ? 'right' : 'left'} />
         ))}
       </div>
+      {!seeMore && (
+        <RotatingBorderButton className="mt-16" label="Voir d'autres expériences" onClick={() => setSeeMore(true)} />
+      )}
     </section>
   )
 })

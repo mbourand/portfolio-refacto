@@ -59,7 +59,7 @@ const PROJECTS = [
 export const Projects = forwardRef<HTMLDivElement, {}>(({}, ref) => {
   const [seeMore, setSeeMore] = useState(false)
 
-  const visibleProjects = seeMore ? PROJECTS : PROJECTS.slice(0, 2)
+  const visibleProjects = seeMore ? PROJECTS : PROJECTS.slice(0, window.innerWidth < 500 ? 1 : 2)
 
   return (
     <section

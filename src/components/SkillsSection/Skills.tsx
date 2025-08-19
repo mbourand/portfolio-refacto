@@ -30,7 +30,7 @@ const SKILL_CATEGORIES: {
     skills: [
       { label: 'Tauri', src: '/skills/tauri.svg' },
       { label: 'C#', src: '/skills/csharp.svg' },
-      { label: 'C/C++', src: '/skills/cpp.svg' },
+      { label: 'C++', src: '/skills/cpp.svg' },
       { label: 'C', src: '/skills/c.svg' },
       { label: 'Java', src: '/skills/java.svg' },
       { label: 'Python', src: '/skills/python.svg' }

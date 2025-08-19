@@ -1,20 +1,20 @@
-export const scrollToRef = (ref: React.RefObject<HTMLElement>) => {
-  if (!ref.current) return;
+export const scrollToId = (id: string) => {
+  const element = document.getElementById(id)
+  if (!element) return
 
-  const isBiggerThanWindow =
-    ref.current.getBoundingClientRect().height > window.innerHeight;
+  const isBiggerThanWindow = element.getBoundingClientRect().height > window.innerHeight
   if (isBiggerThanWindow) {
-    const top = ref.current.getBoundingClientRect().top + window.scrollY;
-    const thirdOfWindowHeight = window.innerHeight / 5;
+    const top = element.getBoundingClientRect().top + window.scrollY
+    const thirdOfWindowHeight = window.innerHeight / 5
 
     window.scrollTo({
       top: top - thirdOfWindowHeight,
-      behavior: "smooth",
-    });
+      behavior: 'smooth'
+    })
   } else {
-    ref.current.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    })
   }
-};
+}

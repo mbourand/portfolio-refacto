@@ -116,7 +116,7 @@ const EXPERIENCES = [
   }
 ]
 
-export const Experiences = forwardRef<HTMLDivElement, {}>(({}, ref) => {
+export const Experiences = forwardRef<HTMLDivElement, { id?: string }>(({ id }, ref) => {
   const [seeMore, setSeeMore] = useState(false)
   const [isSmallScreen, setIsSmallScreen] = useState(false)
 
@@ -127,7 +127,7 @@ export const Experiences = forwardRef<HTMLDivElement, {}>(({}, ref) => {
   const visibleProjects = seeMore || !isSmallScreen ? EXPERIENCES : EXPERIENCES.slice(0, 1)
 
   return (
-    <section ref={ref} className="flex flex-col items-center justify-center my-16 w-full overflow-hidden">
+    <section id={id} ref={ref} className="flex flex-col items-center justify-center my-16 w-full overflow-hidden">
       <SectionTitle>Mes Expériences</SectionTitle>
       <div className="flex flex-row gap-16 flex-wrap justify-center">
         {visibleProjects.map((project, index) => (

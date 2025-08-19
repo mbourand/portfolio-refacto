@@ -71,8 +71,8 @@ export const LifeSection = ({
   )
 }
 
-export const About = forwardRef<HTMLDivElement, {}>(({}, ref) => (
-  <section ref={ref} className="my-16">
+export const About = forwardRef<HTMLDivElement, { id?: string }>(({ id }, ref) => (
+  <section id={id} ref={ref} className="my-16">
     <SectionTitle>Mon Parcours</SectionTitle>
     <div className="flex flex-col gap-2">
       <LifeSection label="COMMENCEMENT" Icon={BeginningIcon}>

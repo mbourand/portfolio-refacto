@@ -1,3 +1,5 @@
+'use client'
+
 import { RotatingBorderButton } from '@/components/Button/RotatingBorderButton'
 import { ProjectCard } from '@/components/ProjectsSection/ProjectCard'
 import { SectionTitle } from '@/components/Title/SectionTitle'
@@ -56,7 +58,7 @@ const PROJECTS = [
   }
 ]
 
-export const Projects = forwardRef<HTMLDivElement, {}>(({}, ref) => {
+export const Projects = forwardRef<HTMLDivElement, { id?: string }>(({ id }, ref) => {
   const [seeMore, setSeeMore] = useState(false)
   const [isSmallScreen, setIsSmallScreen] = useState(false)
 
@@ -68,6 +70,7 @@ export const Projects = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
   return (
     <section
+      id={id}
       ref={ref}
       className="flex flex-col items-center justify-center my-16 w-full overflow-hidden max-w-[1400px]"
     >

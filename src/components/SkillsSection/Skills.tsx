@@ -1,3 +1,5 @@
+'use client'
+
 import { Skill } from '@/components/SkillsSection/Skill'
 import { SkillCategory } from '@/components/SkillsSection/SkillCategory'
 import { SectionTitle } from '@/components/Title/SectionTitle'
@@ -51,14 +53,18 @@ const SKILL_CATEGORIES: {
   }
 ]
 
-export const Skills = forwardRef<HTMLDivElement, {}>(({}, ref) => {
+export const Skills = forwardRef<HTMLDivElement, { id?: string }>(({ id }, ref) => {
   const { ref: inViewRef, inView } = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px -40% 0px'
   })
 
   return (
-    <section ref={ref} className="relative flex flex-col items-center justify-center my-16 w-full max-w-[1100px]">
+    <section
+      id={id}
+      ref={ref}
+      className="relative flex flex-col items-center justify-center my-16 w-full max-w-[1100px]"
+    >
       <SectionTitle>Mes compétences</SectionTitle>
       <div
         ref={inViewRef}

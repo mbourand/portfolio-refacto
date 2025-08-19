@@ -16,13 +16,7 @@ export const Skill = ({ src, label, transitionDelay, visible }: SkillProps) => (
     )}
     style={{ transitionDelay: `${transitionDelay}ms` }}
   >
-    <Image
-      className="w-20 h-20 object-contain group-hover:scale-[105%] transition-all duration-500"
-      src={src}
-      width={300}
-      height={300}
-      alt=""
-    />
+    <img className="w-20 h-20 object-contain group-hover:scale-[105%] transition-all duration-500" src={src} alt="" />
     <p>{label}</p>
   </div>
 )

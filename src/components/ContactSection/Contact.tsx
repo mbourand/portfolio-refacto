@@ -1,14 +1,17 @@
-import { RotatingBorderButton } from '@/components/Button/RotatingBorderButton'
+import { ScrollToTopButton } from '@/components/ContactSection/ScrollToTopButton'
 import { LinkedInIcon } from '@/components/Icon/LinkedInIcon'
 import { MailIcon } from '@/components/Icon/MailIcon'
 import { SectionTitle } from '@/components/Title/SectionTitle'
-import Image from 'next/image'
 import Link from 'next/link'
 import { forwardRef } from 'react'
 
-export const Contact = forwardRef<HTMLDivElement, {}>(({}, ref) => {
+export const Contact = forwardRef<HTMLDivElement, { id?: string }>(({ id }, ref) => {
   return (
-    <section ref={ref} className="relative flex flex-col items-center justify-center my-16 w-full max-w-[1100px]">
+    <section
+      id={id}
+      ref={ref}
+      className="relative flex flex-col items-center justify-center my-16 w-full max-w-[1100px]"
+    >
       <SectionTitle>Mon profil vous intéresse&nbsp;?</SectionTitle>
       <div className="bg-gray-900/60 backdrop-blur-[6px] rounded-lg p-8 flex flex-row max-[676px]:flex-col gap-8 justify-center items-center">
         <div className="w-[150px] overflow-hidden rounded-full relative group">
@@ -44,11 +47,7 @@ export const Contact = forwardRef<HTMLDivElement, {}>(({}, ref) => {
           </div>
         </div>
       </div>
-      <RotatingBorderButton
-        className="mt-12"
-        label="Retourner en haut"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      />
+      <ScrollToTopButton />
     </section>
   )
 })

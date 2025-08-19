@@ -18,7 +18,7 @@ export const Hero = forwardRef<HTMLDivElement, { onKnowMoreClick: () => void }>(
           </span>
         </p>
         <p className="text-2xl min-[880px]:text-3xl w-fit mb-6">
-          <strong className="font-semibold">Développeur Fullstack chez Free Mobile.</strong>{' '}
+          <strong className="font-semibold">Développeur Front-end chez Free.</strong>{' '}
           <span className="opacity-70">Autodidacte passionné depuis mes 13 ans et formé à l'Ecole 42.</span>
         </p>
         <Socials />

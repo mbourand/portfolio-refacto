@@ -16,11 +16,13 @@ import { RotatingBorderButton } from '@/components/Button/RotatingBorderButton'
 import { HomeIcon } from '@/components/Icon/HomeIcon'
 import { scrollToRef } from '@/modules/scroll'
 import { Contact } from '@/components/ContactSection/Contact'
+import { Experiences } from '@/components/ExperiencesSection/Experiences'
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
   const journeyRef = useRef<HTMLDivElement>(null)
   const experiencesRef = useRef<HTMLDivElement>(null)
+  const projectsRef = useRef<HTMLDivElement>(null)
   const skillsRef = useRef<HTMLDivElement>(null)
   const contactRef = useRef<HTMLDivElement>(null)
 
@@ -38,7 +40,8 @@ export default function Home() {
         <NavBar.Root className="max-[650px]:hidden">
           <NavBar.Anchor anchorRef={heroRef}>Accueil</NavBar.Anchor>
           <NavBar.Anchor anchorRef={journeyRef}>Parcours</NavBar.Anchor>
-          <NavBar.Anchor anchorRef={experiencesRef}>Projets</NavBar.Anchor>
+          <NavBar.Anchor anchorRef={experiencesRef}>Expériences</NavBar.Anchor>
+          <NavBar.Anchor anchorRef={projectsRef}>Projets</NavBar.Anchor>
           <NavBar.Anchor anchorRef={skillsRef}>Compétences</NavBar.Anchor>
           <RotatingBorderButton rounded label="Me contacter" onClick={() => scrollToRef(contactRef)} />
         </NavBar.Root>
@@ -46,7 +49,8 @@ export default function Home() {
       <main className="min-h-screen flex flex-col items-center">
         <Hero ref={heroRef} onKnowMoreClick={() => scrollToRef(journeyRef)} />
         <About ref={journeyRef} />
-        <Projects ref={experiencesRef} />
+        <Experiences ref={experiencesRef} />
+        <Projects ref={projectsRef} />
         <Skills ref={skillsRef} />
         <Contact ref={contactRef} />
       </main>

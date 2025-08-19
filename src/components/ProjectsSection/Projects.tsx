@@ -7,23 +7,23 @@ import { forwardRef, useState } from 'react'
 
 const PROJECTS = [
   {
-    videoUrl: '/projects/freemobile.mp4',
-    title: 'Free Mobile',
-    annotation: "2022 - Aujourd'hui",
-    description:
-      "En novembre 2022, après avoir terminé le tronc commun de l'école 42, j'ai effectué un stage chez Free en recherche et développement à la suite duquel j'ai pu intégrer l'équipe en charge du maintien et de la refonte des sites de Free Mobile, travaillant alors aux côtés de designers, développeurs et Product Owners.",
-    tags: [TAGS[Skills.NextJS], TAGS[Skills.TypeScript], TAGS[Skills.TeamWork]],
-    runHref: 'https://mobile.free.fr'
-  },
-  {
     videoUrl: '/projects/deltarunefr.mp4',
     title: 'Deltarune FR',
     annotation: "2018 - Aujourd'hui",
     description:
-      "Deltarune FR est la traduction communautaire française du jeu DELTARUNE. J'ai fondé ce projet en 2018 avec une équipe d'environ 10 personnes. Suite à une fusion une autre équipe travaillant sur le jeu, notre équipe compte une vingtaine de membres pour une communauté de milliers de joueurs.",
-    tags: [TAGS[Skills.VueJS], TAGS[Skills.CPP], TAGS[Skills.TeamWork]],
+      "Deltarune FR est la traduction communautaire française du jeu DELTARUNE. J'ai fondé ce projet en 2018 avec une équipe d'environ 10 personnes. Avec le temps, l'équipe s'est agrandie et compte aujourd'hui une vingtaine de membres pour une communauté de dizaines de milliers de joueurs.",
+    tags: [TAGS[Skills.NextJS], TAGS[Skills.NestJS], TAGS[Skills.Tauri], TAGS[Skills.ProjectManagement]],
     runHref: 'https://deltarune-fr.com',
     sourceHref: 'https://github.com/mbourand/deltarune-fr-patcher'
+  },
+  {
+    videoUrl: '/projects/gameboyemulator.mp4',
+    title: 'Gameboy Emulator',
+    annotation: '2024 - En cours',
+    description:
+      "L'objectif de ce projet est de créer un programme reproduisant le fonctionnement des composants électroniques d'une Gameboy afin de pouvoir lancer des jeux Gameboy sur ordinateur. Ce projet est encore en cours de développement, mais permet déjà de jouer à certains jeux simples.",
+    tags: [TAGS[Skills.CSharp], TAGS[Skills.MonoGame]],
+    sourceHref: 'https://github.com/mbourand/gameboy-emulator-csharp'
   },
   {
     videoUrl: '/projects/fractals.mp4',
@@ -43,14 +43,6 @@ const PROJECTS = [
       "Méli-Mélodies est une chorale créée en 1985. J'ai réalisé pour elle un site vitrine ainsi qu'un espace membre permettant d'apprendre des chants et un espace administrateur permettant de modifier en temps réel le contenu du site.",
     tags: [TAGS[Skills.NextJS], TAGS[Skills.AdonisJS], TAGS[Skills.Docker]],
     runHref: 'https://melimelodies.com'
-  },
-  {
-    videoUrl: '/projects/gameboyemulator.mp4',
-    title: 'Gameboy Emulator',
-    annotation: '2024 - En cours',
-    description:
-      "L'objectif de ce projet est de créer un programme reproduisant le fonctionnement des composants électroniques d'une Gameboy afin de pouvoir lancer des jeux Gameboy sur ordinateur. Ce projet est encore en cours de développement, mais permet déjà de jouer à certains jeux simples.",
-    tags: [TAGS[Skills.CSharp], TAGS[Skills.MonoGame]]
   },
   {
     videoUrl: '/projects/undertaleddd.mp4',

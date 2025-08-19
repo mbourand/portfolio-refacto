@@ -18,7 +18,7 @@ const SKILL_CATEGORIES: {
       { label: 'NextJS', src: '/skills/nextjs.svg' },
       { label: 'React', src: '/skills/react.svg' },
       { label: 'Typescript', src: '/skills/typescript.svg' },
-      { label: 'Javascript', src: '/skills/javascript.svg' },
+      { label: 'NestJS', src: '/skills/nestjs.svg' },
       { label: 'AdonisJS', src: '/skills/adonisjs.svg' },
       { label: 'Playwright', src: '/skills/playwright.svg' }
     ]
@@ -28,12 +28,12 @@ const SKILL_CATEGORIES: {
     className: 'bg-purple-800/10',
     labelClassName: 'bg-purple-800',
     skills: [
-      { label: 'C', src: '/skills/c.svg' },
-      { label: 'C++', src: '/skills/cpp.svg' },
+      { label: 'Tauri', src: '/skills/tauri.svg' },
       { label: 'C#', src: '/skills/csharp.svg' },
+      { label: 'C/C++', src: '/skills/cpp.svg' },
+      { label: 'C', src: '/skills/c.svg' },
       { label: 'Java', src: '/skills/java.svg' },
-      { label: 'Python', src: '/skills/python.svg' },
-      { label: 'OpenCL', src: '/skills/opencl.svg' }
+      { label: 'Python', src: '/skills/python.svg' }
     ]
   },
   {
@@ -44,8 +44,8 @@ const SKILL_CATEGORIES: {
       { label: 'Unity', src: '/skills/unity.svg' },
       { label: 'Gamemaker', src: '/skills/gamemaker.svg' },
       { label: 'Docker', src: '/skills/docker.svg' },
+      { label: 'Coolify', src: '/skills/coolify.png' },
       { label: 'Nginx', src: '/skills/nginx.svg' },
-      { label: 'Git', src: '/skills/git.svg' },
       { label: 'PyTorch', src: '/skills/pytorch.svg' }
     ]
   }

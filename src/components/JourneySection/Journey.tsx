@@ -92,8 +92,8 @@ export const About = forwardRef<HTMLDivElement, {}>(({}, ref) => (
         En Novembre 2022, j'ai débuté un stage de 6 mois chez Free, durant ce stage, j'ai pu travailler sur des projets
         aux thèmes divers, traitant d'IA, de développement de jeux ou encore de développement web. Au terme de ce stage,
         j'ai pu rejoindre l'équipe{' '}
-        <strong className="text-blue-accent">en charge du développement des sites de Free Mobile</strong> auxquels je
-        contribue depuis plus d'un an.{' '}
+        <strong className="text-blue-accent">en charge du développement des sites de Free Mobile</strong> auxquels j'ai
+        contribué pendant près d'un an et demi.
       </LifeSection>
       <LifeSection label="PASSION" Icon={PassionIcon}>
         Je réalise également des <strong className="text-blue-accent">projets sur mon temps libre</strong>, comme une

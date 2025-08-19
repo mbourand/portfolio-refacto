@@ -1,7 +1,7 @@
 export const RunIcon = ({ className }: { className?: string }) => (
-  <i className={className}>
+  <i>
     <svg
-      className="w-full h-full"
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       height="24px"
       viewBox="180 -815 650 650"

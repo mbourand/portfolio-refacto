@@ -4,7 +4,7 @@ import { RunIcon } from '@/components/Icon/RunIcon'
 import { Tag, TagProps } from '@/components/ProjectsSection/Tag'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { twMerge } from 'tailwind-merge'
 
@@ -12,7 +12,7 @@ type ProjectCardProps = {
   title: string
   videoUrl: string
   annotation: string
-  description: string
+  description: ReactNode
   tags: TagProps[]
   className?: string
   runHref?: string
@@ -81,7 +81,7 @@ export const ProjectCard = ({
         <h3 className="text-2xl font-semibold w-fit">{title}</h3>
         <span className="opacity-70 text-sm w-fit">{annotation}</span>
       </div>
-      <p>{description}</p>
+      {typeof description === 'string' ? <p>{description}</p> : description}
       <div className="flex flex-row justify-between w-full items-center mt-auto">
         <div className="flex flex-row gap-2 flex-wrap">
           {tags.map((tag) => (
@@ -91,12 +91,12 @@ export const ProjectCard = ({
         <div className="flex flex-row self-end items-center gap-4">
           {sourceHref && (
             <Link href={sourceHref} target="_blank" aria-label="Voir le code source">
-              <GithubIcon className="text-white hover:text-blue-accent transition-all duration-300 w-[24px] h-[24px]" />
+              <GithubIcon className="text-white hover:text-blue-accent transition-all duration-300 min-w-[24px] min-h-[24px] w-[24px] h-[24px]" />
             </Link>
           )}
           {runHref && (
             <Link href={runHref} target="_blank" aria-label="Lancer le projet">
-              <RunIcon className="text-white hover:text-blue-accent transition-all duration-300 w-[24px] h-[24px]" />
+              <RunIcon className="text-white hover:text-blue-accent transition-all duration-300 min-w-[24px] min-h-[24px] w-[24px] h-[24px]" />
             </Link>
           )}
         </div>

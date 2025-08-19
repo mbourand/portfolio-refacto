@@ -13,4 +13,10 @@ export enum Skills {
   Docker,
   Gamemaker,
   MonoGame,
+  NestJS,
+  Tauri,
+  ProjectManagement,
+  Coolify,
+  React,
+  Cypress
 }

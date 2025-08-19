@@ -6,8 +6,7 @@ const inter = Poppins({ subsets: ['latin'], weight: ['400', '600', '700'] })
 
 export const metadata: Metadata = {
   title: 'Maxime Bourand - Portfolio',
-  description:
-    "Maxime Bourand est un Développeur Fullstack chez Free Mobile ayant étudié à l'Ecole 42 fondée par Xavier Niel."
+  description: "Maxime Bourand est un Développeur Front-end chez Free ayant étudié à l'Ecole 42 fondée par Xavier Niel."
 }
 
 export default function RootLayout({

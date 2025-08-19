@@ -1,7 +1,6 @@
 import { GithubIcon } from '@/components/Icon/GithubIcon'
 import { LinkedInIcon } from '@/components/Icon/LinkedInIcon'
 import { MailIcon } from '@/components/Icon/MailIcon'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export const Socials = () => (
